@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coração Animado com CSS</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background: #222;
+    }
+
+    .heart {
+      position: relative;
+      width: 100px;
+      height: 100px;
+      background-color: red;
+      transform: rotate(45deg);
+      animation: beat 1s infinite;
+    }
+
+    /* Pseudo-elementos para as partes arredondadas do coração */
+    .heart::before,
+    .heart::after {
+      content: "";
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background-color: red;
+    }
+
+    .heart::before {
+      top: -50px;
+      left: 0;
+    }
+
+    .heart::after {
+      left: 50px;
+      top: 0;
+    }
+    span{
+      position: absolute;
+      bottom:50px;
+      color: white;
+      font-size:3em;
+      animation: beat 1s infinite;
+    }
+
+    /* Animação de pulsação */
+    @keyframes beat {
+      0%, 100% {
+        transform: scale(1) rotate(-45deg);
+      }
+      50% {
+        transform: scale(1.1) rotate(-55deg);
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+<div class="heart"></div>
+<span>TE AMO</span>
+
+</body>
+</html>
